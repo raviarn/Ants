@@ -1,0 +1,8 @@
+{
+  "name": "Ants",
+  "app_id": "99d36522",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
