@@ -1,0 +1,18 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content padding>
+
+        <ion-list class="item-content">
+            <button ion-item *ngFor="let item of allMessages" (click)="goToReply(item)">
+                <div class="emaildec" item-center>
+                    <b>{{item.email}}</b><h6 class="querysyste">:{{item.user_id}}</h6>
+                </div>
+                <div class="querydec" item-center>
+                    {{item.msg}}
+                </div>
+            </button>
+        </ion-list>
+
+</ion-content>

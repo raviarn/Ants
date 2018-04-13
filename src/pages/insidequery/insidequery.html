@@ -1,0 +1,35 @@
+<ion-header>
+
+    <style>
+                    img {
+                      border-radius: 20%;
+                    }
+    </style>
+
+</ion-header>
+
+<ion-content>
+
+<div>
+    <br>
+    <p class="emaildec" ><b>{{this.selectedItem.email}}</b></p>
+    <div class="querymainround">
+        <p><b>{{this.selectedItem.query}}</b></p>
+        <p>{{this.selectedItem.desc}}
+        </p>
+    </div>
+    <h5 class="answerpad">Answers</h5>
+</div>
+
+<ion-list class="item-content">
+        <button ion-item *ngFor="let item of allAnswers" (click)="goToSendMessage(item)">
+            <div item-left>
+                <p class="emaildec" >{{item.name}}</p><h6 class="querydec">:{{item.user_id}}</h6>
+                <p class="querymainround" style="text-align:center;">{{item.answer}}</p><br>
+            </div>
+        </button>
+</ion-list>
+<div style="text-align:center;">
+<button ion-button round (click)="goToAnswerHere()">Add my answer</button><br><br>
+</div>
+</ion-content>

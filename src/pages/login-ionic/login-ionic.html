@@ -1,0 +1,30 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="login-background">
+
+<ion-list>
+
+	<br>     
+	<ion-item>
+    		<ion-label color="primary" floating>Email</ion-label>
+    		<ion-input type="email" [(ngModel)]="username" ></ion-input>
+  	</ion-item>
+
+	<ion-item>
+                <ion-label color="primary" floating>Password</ion-label>
+                <ion-input type="password" [(ngModel)]="password" ></ion-input>
+	</ion-item>
+<br><br><br>
+<div style="text-align:center;">
+	<button ion-button round color="primary" type="submit" (click)="loginUser(this.username,this.password)" >Login Now</button>&emsp;
+</div>
+
+<div style="text-align:center;">
+	<p (click)="goToRegister()">Need an Account? Click Me.</p>
+</div>
+
+</ion-list>
+
+</ion-content>

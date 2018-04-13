@@ -1,0 +1,20 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+
+    <div class="answerround">
+        <ion-textarea rows="10" id="messageInputBox" placeholder="Description here" [(ngModel)]="writtenansMsg" (input)="change()" required  ></ion-textarea>
+
+        <br>
+    </div>
+    <div style="text-align:center;">
+        <button ion-button round (click)="addMyAnswer(this.writtenansMsg)">Add my answer</button>
+    </div>
+
+    <p>latitude:{{lat}}</p>
+    <p>longitude:{{lon}}</p>
+    <button (click)="locateMe()">locate</button>
+    <button ion-button round (click)="goToLac()">mappage</button>
+</ion-content>

@@ -1,0 +1,18 @@
+<ion-header>
+    
+</ion-header>
+
+<ion-content>
+
+    <h5 class="emailto">To:</h5>
+        <h5 class="emailnam">{{this.selectreply.email}}</h5>
+        <br><br>
+        <p class="queryround">{{this.selectreply.msg}}</p>
+        <ion-textarea rows="10" id="messageInputBox" placeholder="Description here" [(ngModel)]="writtenMsg" (input)="change()" required  ></ion-textarea>
+        <br>
+        <div style="text-align:center;">
+        <button ion-button round class="buttonmar" color="primary" type="submit" (click)="sendReply(writtenMsg)" >Send My Reply</button><br>
+        </div>
+        <br>
+
+</ion-content>

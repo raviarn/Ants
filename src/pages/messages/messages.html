@@ -1,0 +1,20 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-searchbar (ionInput)="getallQueries($event)"></ion-searchbar>
+
+    <ion-list class="item-content">
+            <button ion-item *ngFor="let item of allQueries" (click)="goToInsideQuery($event,item)">
+                <div class="emaildec" item-center>
+                    <b>{{item.email}}</b><br>
+                </div>
+                <div class="querydec" item-center>
+                    {{item.query}}
+                </div>
+            </button>
+    </ion-list>
+
+</ion-content>

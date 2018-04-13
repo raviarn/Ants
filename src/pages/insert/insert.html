@@ -1,0 +1,32 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+
+        <br>
+        <br>
+        <br>
+
+        <div style="text-align:center;">
+                
+
+                <ion-item>
+                        <ion-label color="primary" stacked>Your Query here</ion-label>
+                        <ion-input type="text" placeholder="Enter Query" [(ngModel)]="writtenQuery" ></ion-input>
+                </ion-item>
+                <p>This Query is used to check in the database</p><br><br>
+        
+                <ion-textarea rows="1" id="messageInputBox" placeholder="Description here" [(ngModel)]="writtenMsg" (input)="change()" required  ></ion-textarea>
+
+        </div>
+
+        <div style="text-align:center;">
+                <br>
+                <p style="color:orange;" id="selectlangauge" (click)="advanceSearch()" >Click me to add Specific language</p>
+                <p style="color:#04042b;" id="language"></p>
+        </div>
+
+        <button ion-button block color="primary" type="submit" (click)="submitQuery(this.writtenQuery,this.writtenMsg)">Submit</button><br>
+        
+</ion-content>
