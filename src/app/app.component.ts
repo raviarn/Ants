@@ -4,6 +4,15 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
+import { LoginIonicPage } from '../pages/login-ionic/login-ionic';
+import { MainPage } from '../pages/mainpage/mainpage';
+import { InboxPage } from '../pages/inbox/inbox';
+import { InsideQueryPage } from '../pages/insidequery/insidequery';
+import { MessagesPage } from '../pages/messages/messages';
+import { UserProfilePage } from '../pages/userprofile/userprofile';
+import { AngularFireAuth } from 'angularfire2/auth';
+import firebase from 'firebase';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,11 +25,13 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage: any;
+  user: any;
   pages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform,
+    afAuth: AngularFireAuth,
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen
@@ -32,6 +43,18 @@ export class MyApp {
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage }
     ];
+
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+        if (!user) 
+	{
+           this.rootPage = LoginIonicPage;
+           unsubscribe();
+        }  else 
+	{
+           this.rootPage = MainPage;
+           unsubscribe();
+        }
+    });
   }
 
   initializeApp() {
