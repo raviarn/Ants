@@ -111,7 +111,7 @@ constructor(
 
   }
 
-  locateMe(){
+  ionViewDidLoad(){
 
     this.geolocation.getCurrentPosition().then((resp) => {
 

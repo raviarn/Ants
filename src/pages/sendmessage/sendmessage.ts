@@ -3,6 +3,7 @@ import { RegistrationPage } from '../registration/registration';
 import { HelloIonicPage } from '../hello-ionic/hello-ionic';
 import firebase from 'firebase';
 import { ToastController } from 'ionic-angular';
+import { LocateAllPage } from '../locateAll/locateAll';
 import {
   IonicPage,
   Loading,
@@ -62,6 +63,14 @@ export class SendMessagePage {
     element.style.height      = scroll_height + "px";
     textarea.style.minHeight  = scroll_height + "px";
     textarea.style.height     = scroll_height + "px";
+  }
+
+  goToLac(){
+
+    this.navCtrl.push(LocateAllPage,{
+      item: this.selecter
+    });
+
   }
 
   sendmyMessage(Msg){

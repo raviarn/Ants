@@ -5,7 +5,7 @@
     <ion-content>
     
         <h5 class="emailto">To:</h5>
-        <h5 class="emailnam">{{this.selecter.name}}</h5>
+        <h5 class="emailnam">{{this.selecter.name}}&emsp;<ion-icon name="locate" (click)="goToLac()"></ion-icon></h5>
         <br><br>
         <ion-textarea rows="10" id="messageInputBox" placeholder="Description here" [(ngModel)]="writtenMsg" (input)="change()" required  ></ion-textarea>
         <br>
@@ -16,4 +16,3 @@
 
     
     </ion-content>
-    

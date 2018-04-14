@@ -34,6 +34,7 @@ export class MessagesPage {
           console.log(resp.coords.longitude);
 
           var QueryData = {
+            user_id:this.firebaseUserId,
             latitude:this.latit,
             longitude:this.longit
           };

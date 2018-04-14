@@ -24,6 +24,7 @@ import { LocateAllPage } from '../pages/locateAll/locateAll';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap,Marker,MarkerOptions } from '@ionic-native/google-maps';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -34,6 +35,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { GeocoderProvider } from '../providers/geocoder/geocoder';
 export const firebaseConfig = {
 
     apiKey: "AIzaSyA0AnmZLmy3nIfcbidSkZiPbE4sOTCbFBc",
@@ -99,7 +101,9 @@ export const firebaseConfig = {
     AuthProvider,
     AngularFireAuth,
     Geolocation,
-    GoogleMaps
+    GoogleMaps,
+    NativeGeocoder,
+    GeocoderProvider
   ]
 })
 export class AppModule {}

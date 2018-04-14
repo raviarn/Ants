@@ -9,5 +9,16 @@
 </ion-header>
 
 <ion-content>
+<div class="iconic">
+  <button ion-button icon-only (click)="mylocation()">
+    <ion-icon name="locate"></ion-icon>
+  </button>
+  <button ion-button icon-only (click)="reclocation()">
+    <ion-icon name="star"></ion-icon>
+  </button>
+  <button ion-button icon-only (click)="routeus()">
+    <ion-icon name="heart"></ion-icon>
+  </button>
+  </div>
   <div #map id="map"></div>
 </ion-content>

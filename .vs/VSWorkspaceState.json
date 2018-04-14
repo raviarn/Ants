@@ -6,9 +6,11 @@
     "\\src\\assets",
     "\\src\\pages",
     "\\src\\pages\\answerhere",
-    "\\src\\pages\\inbox",
-    "\\src\\pages\\locateAll"
+    "\\src\\pages\\messages",
+    "\\src\\pages\\sendmessage",
+    "\\src\\pages\\userprofile",
+    "\\src\\theme"
   ],
-  "SelectedNode": "\\src\\pages\\inbox\\inbox.html",
+  "SelectedNode": "\\src\\pages\\userprofile\\userprofile.ts",
   "PreviewInSolutionExplorer": false
 }
