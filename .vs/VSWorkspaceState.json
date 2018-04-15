@@ -6,11 +6,11 @@
     "\\src\\assets",
     "\\src\\pages",
     "\\src\\pages\\answerhere",
+    "\\src\\pages\\locateAll",
+    "\\src\\pages\\login-ionic",
     "\\src\\pages\\messages",
-    "\\src\\pages\\sendmessage",
-    "\\src\\pages\\userprofile",
-    "\\src\\theme"
+    "\\src\\pages\\sendmessage"
   ],
-  "SelectedNode": "\\src\\pages\\userprofile\\userprofile.ts",
+  "SelectedNode": "\\src\\app\\main.ts",
   "PreviewInSolutionExplorer": false
 }

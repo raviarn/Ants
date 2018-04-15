@@ -131,22 +131,15 @@ export class LocateAllPage {
 
     console.log(this.allLocations.length);
 
-    for(var i = 0;i<this.allLocations.length;i++) { 
+    this.initAllMap();
 
-      var rep = this.allLocations[i].user_id.localeCompare(this.firebaseUserId);
-      if(rep == 0)
-      {
-        var resu:any;
+    /*
 
-        this.lat = this.allLocations[i].latitude;
-        this.lon = this.allLocations[i].longitude;
-
-        this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
+    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
         .then((result: NativeGeocoderReverseResult) => console.log(JSON.stringify(result)))
         .catch((error: any) => console.log(error));
 
-      }
-    }
+        */
 
   }
 
@@ -165,6 +158,34 @@ export class LocateAllPage {
     };
 
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+    var marker1 = new google.maps.Marker({
+      position: latLng,
+      map: this.map,
+      icon: image
+    })
+
+  }
+
+  initAllMap(){
+
+    let latLng = new google.maps.LatLng(this.lat,this.lon);
+
+    var image = 'assets/imgs/marker.png';
+
+    let mapOptions = {
+
+      center: latLng,
+      zoom:15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      
+    };
+
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
+        .then((result: NativeGeocoderReverseResult) => console.log(JSON.stringify(result)))
+        .catch((error: any) => console.log(error));
 
     var marker1 = new google.maps.Marker({
       position: latLng,
