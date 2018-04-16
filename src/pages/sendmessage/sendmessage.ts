@@ -103,7 +103,9 @@ export class SendMessagePage {
 
   goToLocateAll(){
 
-    this.navCtrl.push(LocateAllPage);
+    this.navCtrl.push(LocateAllPage,{
+      item: this.selecter
+    });
 
   }
 

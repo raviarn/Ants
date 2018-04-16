@@ -35,7 +35,8 @@ export class MessagesPage {
 
           var QueryData = {
             latitude:this.latit,
-            longitude:this.longit
+            longitude:this.longit,
+            user_id: this.firebaseUserId
           };
 
           var updateLoc = {};
