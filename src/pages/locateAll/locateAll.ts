@@ -158,7 +158,7 @@ export class LocateAllPage {
   routeUs(){
 
     this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
-    .then((result: NativeGeocoderReverseResult) => alert(JSON.stringify(result)))
+    .then((result: NativeGeocoderReverseResult) => (JSON.stringify(result)))
     .catch((error: any) => alert(error));
 
   }
