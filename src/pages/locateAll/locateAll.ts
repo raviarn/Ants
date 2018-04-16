@@ -5,6 +5,7 @@ import { ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap,Marker,MarkerOptions } from '@ionic-native/google-maps';
 import { LatLng, CameraPosition } from '@ionic-native/google-maps';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 import { MainPage } from '../mainpage/mainpage';
 import {
   IonicPage,
@@ -42,7 +43,7 @@ export class LocateAllPage {
 
     public navCtrl: NavController,
     public toastCtrl: ToastController,
-    public navParams: NavParams,private geolocation: Geolocation,public _googleMaps: GoogleMaps) {
+    public navParams: NavParams,private geolocation: Geolocation,public _googleMaps: GoogleMaps,private nativeGeocoder: NativeGeocoder) {
 
       this.selectlocate = navParams.get('item');
       // var emai = "From:"+this.selectedItem;
@@ -156,6 +157,9 @@ export class LocateAllPage {
 
   routeUs(){
 
+    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
+    .then((result: NativeGeocoderReverseResult) => alert(JSON.stringify(result)))
+    .catch((error: any) => alert(error));
 
   }
 
