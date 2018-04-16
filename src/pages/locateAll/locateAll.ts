@@ -1,6 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { RegistrationPage } from '../registration/registration';
-import { NavController } from 'ionic-angular';
 import firebase from 'firebase';
 import { ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
