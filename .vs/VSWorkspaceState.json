@@ -6,9 +6,11 @@
     "\\src\\assets",
     "\\src\\pages",
     "\\src\\pages\\answerhere",
-    "\\src\\pages\\inbox",
-    "\\src\\pages\\locateAll"
+    "\\src\\pages\\insidequery",
+    "\\src\\pages\\locateAll",
+    "\\src\\pages\\login-ionic",
+    "\\src\\pages\\messages"
   ],
-  "SelectedNode": "\\src\\pages\\inbox\\inbox.html",
+  "SelectedNode": "\\src\\pages\\sendmessage\\sendmessage.html",
   "PreviewInSolutionExplorer": false
 }

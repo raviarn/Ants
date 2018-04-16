@@ -17,6 +17,7 @@ import { EmailValidator } from '../../validators/email';
 import { AuthProvider } from '../../providers/auth/auth';
 import { MainPage } from '../mainpage/mainpage';
 import { AnswerHerePage } from '../answerhere/answerhere';
+import { LocateAllPage } from '../locateAll/locateAll';
 
 @Component({
   selector: 'page-sendmessage',
@@ -99,7 +100,13 @@ export class SendMessagePage {
       this.navCtrl.setRoot(MainPage);
 
   }
-  
+
+  goToLocateAll(){
+
+    this.navCtrl.push(LocateAllPage);
+
+  }
+
   presentToast(value:string) {
                 let toast = this.toastCtrl.create({
                 message: value,

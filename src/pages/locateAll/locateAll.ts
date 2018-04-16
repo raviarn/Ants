@@ -54,7 +54,7 @@ export class LocateAllPage {
 
     let latLng = new google.maps.LatLng(12.9410005,77.5799636);
 
-    var image = 'assets/imgs/Location_marker_pin_map_gps.png';
+    var image = 'assets/imgs/marker.png';
 
     let mapOptions = {
 
