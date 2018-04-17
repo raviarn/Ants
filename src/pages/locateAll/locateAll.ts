@@ -193,9 +193,14 @@ export class LocateAllPage {
     var geocoder = new google.maps.Geocoder;
     var infowindow = new google.maps.InfoWindow;
 
-    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
-    .then((result: NativeGeocoderReverseResult) => this.presentToast(JSON.stringify(result)))
-    .catch((error: any) => console.log(error));
+    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818).then((res: NativeGeocoderReverseResult) => {
+      let country = this.toastCtrl.create({
+        message: res.countryName,
+        duration: 4000
+      });
+      country.present();
+    })
+
   }
  
 
