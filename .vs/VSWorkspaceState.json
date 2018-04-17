@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\assets",
+    "\\src\\assets\\imgs",
     "\\src\\pages",
     "\\src\\pages\\answerhere",
     "\\src\\pages\\insidequery",
-    "\\src\\pages\\locateAll",
-    "\\src\\pages\\login-ionic",
-    "\\src\\pages\\messages"
+    "\\src\\pages\\sendmessage",
+    "\\src\\theme"
   ],
-  "SelectedNode": "\\src\\pages\\sendmessage\\sendmessage.html",
+  "SelectedNode": "\\src\\pages\\sendmessage\\sendmessage.ts",
   "PreviewInSolutionExplorer": false
 }

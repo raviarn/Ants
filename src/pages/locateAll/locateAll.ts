@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { RegistrationPage } from '../registration/registration';
 import firebase from 'firebase';
 import { ToastController } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap,Marker,MarkerOptions } from '@ionic-native/google-maps';
 import { LatLng, CameraPosition } from '@ionic-native/google-maps';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
@@ -27,7 +27,7 @@ declare var google:any;
 })
 
 export class LocateAllPage {
-
+  testingparams : any;
   selectlocate: any;
   public firebaseUserId: any;
   public firebaseRecId:any;
@@ -43,7 +43,7 @@ export class LocateAllPage {
 
     public navCtrl: NavController,
     public toastCtrl: ToastController,
-    public navParams: NavParams,private geolocation: Geolocation,public _googleMaps: GoogleMaps,private nativeGeocoder: NativeGeocoder) {
+    public navParams: NavParams,private geolocation: Geolocation,public _googleMaps: GoogleMaps,public nativeGeocoder: NativeGeocoder) {
 
       this.selectlocate = navParams.get('item');
       // var emai = "From:"+this.selectedItem;
@@ -107,6 +107,39 @@ export class LocateAllPage {
 
   }
 
+  geocodeLatLng(geocoder, map, infowindow,callback): any {
+
+    var latlng = {lat: 15.505723,lng: 80.049919};
+    var resu:any;
+
+    return geocoder.geocode({'location': latlng}, function(results, status) {
+      if (status === 'OK') {
+       
+        if (results[0]) {
+          map.setZoom(15);
+          var marker = new google.maps.Marker({
+                position: latlng,
+                map: map
+          });
+          // console.log(results[0].formatted_address);
+          callback(results[0].formatted_address);
+          infowindow.setContent(results[0].formatted_address);
+          infowindow.open(map, marker);
+
+        } else {
+              window.alert('No results found');
+              
+        }
+
+      } else {
+            window.alert('Geocoder failed due to: ' + status);
+        
+      }
+
+    });
+    
+  }
+
   locateMe(){
 
     console.log(this.allLocations.length);
@@ -157,18 +190,21 @@ export class LocateAllPage {
 
   routeUs(){
 
-    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
-    .then((result: NativeGeocoderReverseResult) => (JSON.stringify(result)))
-    .catch((error: any) => alert(error));
+    var geocoder = new google.maps.Geocoder;
+    var infowindow = new google.maps.InfoWindow;
 
+    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818)
+    .then((result: NativeGeocoderReverseResult) => this.presentToast(JSON.stringify(result)))
+    .catch((error: any) => console.log(error));
   }
+ 
 
   presentToast(value:string) {
     let toast = this.toastCtrl.create({
     message: value,
     duration: 3000,
     position: 'bottom'
-    });
+    }); 
     toast.present();
   }
 
