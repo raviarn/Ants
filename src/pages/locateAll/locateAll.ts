@@ -42,7 +42,7 @@ export class LocateAllPage {
   constructor(
 
     public navCtrl: NavController,
-    public toastCtrl: ToastController,
+    public toastCtrl: ToastController,public loadingCtrl: LoadingController,
     public navParams: NavParams,private geolocation: Geolocation,public _googleMaps: GoogleMaps,public nativeGeocoder: NativeGeocoder) {
 
       this.selectlocate = navParams.get('item');
@@ -92,7 +92,7 @@ export class LocateAllPage {
     let mapOptions = {
 
       center: latLng,
-      zoom:15,
+      zoom:17,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       
     };
@@ -153,6 +153,7 @@ export class LocateAllPage {
 
   locateMe(){
 
+    this.presentLoadingDefault(1000);
     console.log(this.allLocations.length);
 
     var i;
@@ -180,7 +181,7 @@ export class LocateAllPage {
     console.log(this.allLocations.length);
 
     var i;
-
+    this.presentLoadingDefault(1000);
     for(i=0;i<this.allLocations.length;i++)
     {
 
@@ -261,11 +262,11 @@ export class LocateAllPage {
           }
           
     });
+    this.presentLoadingDefault(3000);
     setTimeout(() => {
       // Some more code that executes after 1 second
       console.log(sourceaddress,"s2");
       console.log(destiaddress,"d2");
-      this.presentToast(sourceaddress);
       this.calculateAndDisplayRoute(sourceaddress,destiaddress)
 
     }, 1000)
@@ -301,6 +302,18 @@ export class LocateAllPage {
         window.alert('Directions request failed due to ' + status);
       }
     });
+  }
+
+  presentLoadingDefault(tm) {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+
+    loading.present();
+
+    setTimeout(() => {
+      loading.dismiss();
+    }, tm);
   }
 
   presentToast(value:string) {

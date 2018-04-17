@@ -4,10 +4,17 @@ page-locateAll {
 
     }
 
+    .drill {
+        text-align: center;
+    }
+
     .localll {
         border: none;
         position: relative;   
         text-align: center;
+        padding-left:10px;
+        padding-top:10px;
+        background-color: transparent;
         width:100%;
     }
 }
