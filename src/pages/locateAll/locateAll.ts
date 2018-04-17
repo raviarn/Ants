@@ -266,6 +266,7 @@ export class LocateAllPage {
       console.log(sourceaddress,"s2");
       console.log(destiaddress,"d2");
       this.presentToast(sourceaddress);
+      this.calculateAndDisplayRoute(sourceaddress,destiaddress)
 
     }, 1000)
     /*
@@ -280,7 +281,27 @@ export class LocateAllPage {
     */
 
   }
- 
+
+  calculateAndDisplayRoute(souraddres,destaddress)
+  {
+
+    let directionsService = new google.maps.DirectionsService;
+    let directionsDisplay = new google.maps.DirectionsRenderer;
+    var map = this.map;
+    directionsDisplay.setMap(map);
+
+    directionsService.route({
+      origin: souraddres,
+      destination: destaddress,
+      travelMode: 'DRIVING'
+    }, function(response, status) {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    });
+  }
 
   presentToast(value:string) {
     let toast = this.toastCtrl.create({
