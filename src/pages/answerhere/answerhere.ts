@@ -7,6 +7,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { MainPage } from '../mainpage/mainpage';
 import { LocateAllPage } from '../locateAll/locateAll';
 import { Diagnostic } from '@ionic-native/diagnostic';
+import { Platform } from 'ionic-angular';
 
 import {
   IonicPage,
@@ -36,6 +37,7 @@ constructor(
   public navCtrl: NavController,
   public toastCtrl: ToastController,
   public diagnostic: Diagnostic,
+  public platform: Platform,
   public navParams: NavParams,private geolocation: Geolocation) {
 
     this.firebaseUserId = firebase.auth().currentUser.uid;
@@ -46,14 +48,6 @@ constructor(
     this.username = firebase.auth().currentUser;
   
     var userId = firebase.auth().currentUser.uid;
-
-    let successCallback = (isAvailable) => { alert(isAvailable); };
-    let errorCallback = (e) => alert(e);
-
-    this.diagnostic.isLocationEnabled().then(successCallback).catch(errorCallback);
-
-    // only android
-    this.diagnostic.isGpsLocationEnabled().then(successCallback, errorCallback);
 
   }
 
@@ -75,6 +69,20 @@ constructor(
     element.style.height      = scroll_height + "px";
     textarea.style.minHeight  = scroll_height + "px";
     textarea.style.height     = scroll_height + "px";
+  }
+
+  checkLocation()
+  {
+    this.platform.ready().then((readySource) => {
+      this.diagnostic.isLocationEnabled().then(
+        (isAvailable) => {
+          console.log('Is available? ' + isAvailable);
+          alert('Is available? ' + isAvailable);
+        }).catch( (e) => {
+        console.log(e);
+        alert(JSON.stringify(e));
+      });
+    });
   }
 
   addMyAnswer(Writtenanswer){
