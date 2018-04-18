@@ -2,15 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
     "\\src\\assets",
-    "\\src\\assets\\imgs",
     "\\src\\pages",
-    "\\src\\pages\\answerhere",
     "\\src\\pages\\insidequery",
-    "\\src\\pages\\sendmessage",
     "\\src\\theme"
   ],
-  "SelectedNode": "\\src\\pages\\sendmessage\\sendmessage.ts",
+  "SelectedNode": "\\src\\pages\\insidequery\\insidequery.scss",
   "PreviewInSolutionExplorer": false
 }
