@@ -44,10 +44,9 @@ export class MessagesPage {
 
           try{
             firebase.database().ref().update(updateLoc);
-            this.presentToast("Location recorded");
           }catch(e)
           {
-            this.presentToast("please check your internrt connection");
+            
           }
 
       }).catch((error) => {

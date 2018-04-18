@@ -108,20 +108,49 @@ constructor(
       console.log(this.firebaseUserId);
       console.log(Writtenanswer);
 
+      this.locationAccuracy.canRequest().then((res: boolean) => {
+      if (res) {
+        this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(() => {
+          this.geolocation.getCurrentPosition().then((resp) => {
+          console.log(resp.coords.latitude);
+          console.log(resp.coords.longitude);
+          this.lat = resp.coords.latitude;
+          this.lon = resp.coords.longitude;
 
-      var answerupdates = {};
-      answerupdates['Answers/'+this.selected.answer+'/'+random] = AnswerData;
+          var answerupdates = {};
+          answerupdates['Answers/'+this.selected.answer+'/'+random] = AnswerData;
 
-      try{
-        firebase.database().ref().update(answerupdates);
-        this.presentToast("Answer added");
-      }catch(e)
-      {
-        this.presentToast("please check your internrt connection");
-        return;
+          var QueryData = {
+            latitude:this.lat,
+            longitude:this.lon,
+            user_id: this.firebaseUserId
+          };
+
+          var updateLoc = {};
+          updateLoc['Location/'+ this.firebaseUserId] = QueryData;
+
+          try{
+            firebase.database().ref().update(answerupdates);
+            this.presentToast("Answer added");
+            firebase.database().ref().update(updateLoc);
+            this.presentToast("Location recorded");
+          }catch(e)
+          {
+            this.presentToast("please check your internrt connection");
+            return;
+          }
+
+          this.navCtrl.setRoot(MainPage);
+
+          }).catch((error) => {
+          alert(error);
+          });
+        
+        }, (error) => {
+          alert(error);
+        })
       }
-
-      this.navCtrl.setRoot(MainPage);
+    })
 
   }
 
