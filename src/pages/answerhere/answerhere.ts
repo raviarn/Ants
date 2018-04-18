@@ -140,7 +140,7 @@ constructor(
           this.lon = resp.coords.longitude;
 
       }).catch((error) => {
-          console.log('Error getting location', error);
+          alert(error);
       });
 
   }
