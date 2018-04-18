@@ -8,6 +8,7 @@ import { MainPage } from '../mainpage/mainpage';
 import { LocateAllPage } from '../locateAll/locateAll';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { Platform } from 'ionic-angular';
+import { LocationAccuracy } from '@ionic-native/location-accuracy';
 
 import {
   IonicPage,
@@ -38,6 +39,7 @@ constructor(
   public toastCtrl: ToastController,
   public diagnostic: Diagnostic,
   public platform: Platform,
+  private locationAccuracy: LocationAccuracy,
   public navParams: NavParams,private geolocation: Geolocation) {
 
     this.firebaseUserId = firebase.auth().currentUser.uid;
@@ -131,17 +133,23 @@ constructor(
 
   locateMe(){
 
-    this.geolocation.getCurrentPosition().then((resp) => {
-
+    this.locationAccuracy.canRequest().then((res: boolean) => {
+      if (res) {
+        this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(() => {
+          this.geolocation.getCurrentPosition().then((resp) => {
           console.log(resp.coords.latitude);
           console.log(resp.coords.longitude);
-
           this.lat = resp.coords.latitude;
           this.lon = resp.coords.longitude;
-
-      }).catch((error) => {
+          }).catch((error) => {
           alert(error);
-      });
+          });
+        
+        }, (error) => {
+          alert(error);
+        })
+      }
+    })
 
   }
 

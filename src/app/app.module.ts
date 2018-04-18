@@ -26,6 +26,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap,Marker,MarkerOptions } from '@ionic-native/google-maps';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 import { Diagnostic } from '@ionic-native/diagnostic';
+import { LocationAccuracy } from '@ionic-native/location-accuracy';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -103,7 +104,8 @@ export const firebaseConfig = {
     Geolocation,
     GoogleMaps,
     NativeGeocoder,
-    Diagnostic
+    Diagnostic,
+    LocationAccuracy
   ]
 })
 export class AppModule {}

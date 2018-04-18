@@ -92,4 +92,5 @@
     </plugin>
     <engine name="android" spec="7.0.0" />
     <plugin name="cordova.plugins.diagnostic" spec="^4.0.5" />
+    <plugin name="cordova-plugin-request-location-accuracy" spec="^2.2.2" />
 </widget>
