@@ -51,7 +51,7 @@ export class MessagesPage {
           }
 
       }).catch((error) => {
-          console.log('Error getting location', error);
+          alert(error);
       });
 
       this.initializeValues();
