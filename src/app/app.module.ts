@@ -25,6 +25,7 @@ import { LocateAllPage } from '../pages/locateAll/locateAll';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap,Marker,MarkerOptions } from '@ionic-native/google-maps';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
+import { Diagnostic } from '@ionic-native/diagnostic';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -101,7 +102,8 @@ export const firebaseConfig = {
     AngularFireAuth,
     Geolocation,
     GoogleMaps,
-    NativeGeocoder
+    NativeGeocoder,
+    Diagnostic
   ]
 })
 export class AppModule {}

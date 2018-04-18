@@ -6,6 +6,7 @@ import { ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { MainPage } from '../mainpage/mainpage';
 import { LocateAllPage } from '../locateAll/locateAll';
+import { Diagnostic } from '@ionic-native/diagnostic';
 
 import {
   IonicPage,
@@ -34,6 +35,7 @@ export class AnswerHerePage {
 constructor(
   public navCtrl: NavController,
   public toastCtrl: ToastController,
+  public diagnostic: Diagnostic,
   public navParams: NavParams,private geolocation: Geolocation) {
 
     this.firebaseUserId = firebase.auth().currentUser.uid;
@@ -44,6 +46,14 @@ constructor(
     this.username = firebase.auth().currentUser;
   
     var userId = firebase.auth().currentUser.uid;
+
+    let successCallback = (isAvailable) => { alert(isAvailable); };
+    let errorCallback = (e) => alert(e);
+
+    this.diagnostic.isLocationEnabled().then(successCallback).catch(errorCallback);
+
+    // only android
+    this.diagnostic.isGpsLocationEnabled().then(successCallback, errorCallback);
 
   }
 
