@@ -299,7 +299,8 @@ export class LocateAllPage {
       if (status === 'OK') {
         directionsDisplay.setDirections(response);
       } else {
-        window.alert('Directions request failed due to ' + status);
+          if(status === 'REQUEST_DENIED')
+            window.alert('Directions request failed due to ' + response.error_message);
       }
     });
   }
