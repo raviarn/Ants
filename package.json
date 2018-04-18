@@ -62,8 +62,8 @@
       "cordova-plugin-firebase": {},
       "cordova-plugin-geolocation": {},
       "cordova-plugin-googlemaps": {
-        "API_KEY_FOR_ANDROID": "AIzaSyCGnT6iZM-36xGFpOcJOyeWKAQCZF9MchY",
-        "API_KEY_FOR_IOS": "AIzaSyCGnT6iZM-36xGFpOcJOyeWKAQCZF9MchY",
+        "API_KEY_FOR_ANDROID": "AIzaSyA0AnmZLmy3nIfcbidSkZiPbE4sOTCbFBc",
+        "API_KEY_FOR_IOS": "AIzaSyA0AnmZLmy3nIfcbidSkZiPbE4sOTCbFBc",
         "PLAY_SERVICES_VERSION": "12.0.0",
         "ANDROID_SUPPORT_V4_VERSION": "24.1.0"
       },
